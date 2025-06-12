@@ -36,5 +36,4 @@ class Author(models.Model):
     imagen = models.ImageField(upload_to='autores/')
     fecha = models.DateTimeField(auto_now_add=True)
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
-    nombre = models.CharField(max_length=100)
-    correo = models.EmailField()
+   
