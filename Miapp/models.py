@@ -26,14 +26,3 @@ class Post(models.Model):
         return self.title
 
 
-from ckeditor.fields import RichTextField
-from django.contrib.auth.models import User
-
-class Author(models.Model):
-    titulo = models.CharField(max_length=100)
-    subtitulo = models.CharField(max_length=100)
-    contenido = RichTextField()
-    imagen = models.ImageField(upload_to='autores/')
-    fecha = models.DateTimeField(auto_now_add=True)
-    autor = models.ForeignKey(User, on_delete=models.CASCADE)
-   
