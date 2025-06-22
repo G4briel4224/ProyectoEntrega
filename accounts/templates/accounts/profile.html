@@ -1,3 +1,14 @@
-<h2>Perfil de usuario</h2>
-<p>Bienvenido, {{ user.username }}!</p>
-<a href="{% url 'accounts:logout' %}">Cerrar sesión</a>
+{% extends 'base.html' %}
+
+{% block title %}Mi Perfil{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Perfil de {{ user.username }}</h2>
+ 
+
+    <!-- Puedes agregar más detalles aquí -->
+
+    <a href="{% url 'Miapp:home' %}" class="btn btn-secondary mt-3">Volver al inicio</a>
+</div>
+{% endblock %}

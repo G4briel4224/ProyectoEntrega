@@ -1,13 +1,43 @@
-
 {% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Inicio{% endblock %}
 
 {% block content %}
-<h2>Lista de Posts</h2>
-<ul>
-    {% for post in posts %}
-        <li><strong>{{ post.title }}</strong> por {{ post.author.name }} ({{ post.category.title }})</li>
-    {% empty %}
-        <li>No hay posts aún.</li>
-    {% endfor %}
-</ul>
+<div class="container">
+    <div class="mb-4 text-end">
+    <a href="{% url 'Miapp:create_category' %}" class="btn btn-outline-primary">
+        Crear Categoría
+    </a>
+</div>
+    <h1 class="mb-4 text-center">Publicaciones Recientes</h1>
+
+    {% if posts %}
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            {% for post in posts %}
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ post.title }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                Categoría: {{ post.category }}<br>
+                                Autor: {{ post.author }}
+                            </h6>
+                            <p class="card-text">
+                                {{ post.content|truncatewords:20 }}
+                            </p>
+                        </div>
+                        <div class="card-footer text-muted">
+                            Publicado el {{ post.created_at|date:"d M Y, H:i" }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info" role="alert">
+            No hay publicaciones aún. ¡Crea la primera!
+        </div>
+    {% endif %}
+</div>
 {% endblock %}

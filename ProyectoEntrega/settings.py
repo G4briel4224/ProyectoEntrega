@@ -136,3 +136,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+LOGIN_URL = '/accounts/login/'
