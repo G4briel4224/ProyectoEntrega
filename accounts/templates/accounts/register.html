@@ -1,6 +1,41 @@
-<h2>Registro</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Registrarse</button>
-</form>
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Registrarse{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white text-center">
+                    <h4>Crear cuenta</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="id_username" class="form-label">Nombre de usuario</label>
+                            {{ form.username|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_email" class="form-label">Correo electrónico</label>
+                            {{ form.email|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_password1" class="form-label">Contraseña</label>
+                            {{ form.password1|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_password2" class="form-label">Confirmar contraseña</label>
+                            {{ form.password2|add_class:"form-control" }}
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

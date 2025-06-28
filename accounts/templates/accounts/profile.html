@@ -1,14 +1,27 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
 
 {% block title %}Mi Perfil{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h2>Perfil de {{ user.username }}</h2>
- 
-
-    <!-- Puedes agregar más detalles aquí -->
-
-    <a href="{% url 'Miapp:home' %}" class="btn btn-secondary mt-3">Volver al inicio</a>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Perfil de {{ user.username }}</h4>
+                </div>
+                <div class="card-body">
+                    <p><strong>Nombre de usuario:</strong> {{ user.username }}</p>
+                    <p><strong>Email:</strong> {{ user.email }}</p>
+                    <p><strong>¿Es staff?:</strong> {{ user.is_staff|yesno:"Sí,No" }}</p>
+                    <p><strong>¿Es superusuario?:</strong> {{ user.is_superuser|yesno:"Sí,No" }}</p>
+                </div>
+                <div class="card-footer text-end">
+                    <a href="{% url 'Miapp:home' %}" class="btn btn-outline-light btn-sm bg-primary">Volver al inicio</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

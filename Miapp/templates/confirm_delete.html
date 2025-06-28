@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Confirmar Eliminación{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+    <h2 class="my-4">¿Estás seguro que deseas eliminar este post?</h2>
+    <p><strong>{{ post.title }}</strong></p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+        <a href="{% url 'Miapp:home' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

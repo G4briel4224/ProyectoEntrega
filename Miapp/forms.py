@@ -1,10 +1,7 @@
-from django import forms
-from .models import Author, Category, Post  # Asegurate que estos modelos existen
+# forms.py
 
-class AuthorForm(forms.ModelForm):
-    class Meta:
-        model = Author
-        fields = ['name', 'email']
+from django import forms
+from .models import Category, Post
 
 class CategoryForm(forms.ModelForm):
     class Meta:
@@ -14,7 +11,12 @@ class CategoryForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'content', 'author', 'category']
+        fields = ['title', 'content', 'category', 'image']
 
 class SearchForm(forms.Form):
-    query = forms.CharField(label='Buscar', max_length=100)
+    query = forms.CharField(label='Buscar', max_length=100, required=False)
+    category = forms.ModelChoiceField(
+        queryset=Category.objects.all(),
+        required=False,
+        label='Categoría'
+    )

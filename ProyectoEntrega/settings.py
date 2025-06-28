@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'messaging',
     'ckeditor',
     'ckeditor_uploader',
+    "widget_tweaks",
 
 ]
 
@@ -138,3 +139,8 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 LOGIN_URL = '/accounts/login/'
+
+import os
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
