@@ -8,12 +8,27 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    <strong>Por favor corrige los errores abajo.</strong>
+                </div>
+            {% endif %}
+
             <div class="card shadow-sm">
                 <div class="card-header bg-success text-white text-center">
                     <h4>Crear cuenta</h4>
                 </div>
                 <div class="card-body">
-                    <form method="post">
+                    <form method="post" novalidate>
                         {% csrf_token %}
                         <div class="mb-3">
                             <label for="id_username" class="form-label">Nombre de usuario</label>
@@ -26,6 +41,7 @@
                         <div class="mb-3">
                             <label for="id_password1" class="form-label">Contraseña</label>
                             {{ form.password1|add_class:"form-control" }}
+                            <div class="form-text">La contraseña debe tener al menos 8 caracteres.</div>
                         </div>
                         <div class="mb-3">
                             <label for="id_password2" class="form-label">Confirmar contraseña</label>
