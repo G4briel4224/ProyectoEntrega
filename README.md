@@ -49,3 +49,8 @@ Este es un proyecto web desarrollado con **Django** como parte de la entrega fin
 
 **Gabriel Quintero**  
 [GitHub](https://github.com/G4briel4224)
+
+
+
+el video solicitado: 
+https://drive.google.com/file/d/1NjQsItmMy5mn1BAGUwtshjGvB3sXlvt8/view?usp=drive_link
