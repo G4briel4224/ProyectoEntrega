@@ -5,12 +5,11 @@ Este es un proyecto web desarrollado con **Django** como parte de la entrega fin
 ## 🚀 Funcionalidades principales
 
 - Registro, login y logout de usuarios
-- Vista de perfil y edición de datos personales (incluye avatar)
+- Vista de perfil
 - Crear, editar y eliminar publicaciones (con imágenes y categorías)
 - Vista de detalle de cada publicación
 - Búsqueda por título y filtrado por categoría
 - Vista “Acerca de mí”
-- Mensajería entre usuarios
 - Uso de `CKEditor` para contenido enriquecido
 - Sistema de navegación con `base.html` y Bootstrap 5
 - Seguridad con decoradores y mixins en vistas protegidas
